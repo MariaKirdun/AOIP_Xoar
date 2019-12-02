@@ -1,13 +1,18 @@
 package com.example.aoip_xoar
 
-class XoarSort(val array : Array<Int>) {
 
-    fun sort () : Array<Int>{
+class XoarSort(val array : ArrayList<Int>) {
+
+    suspend fun sort () : ArrayList<Int>{
+
         qsort(0,array.size - 1)
         return array
     }
 
     private fun qsort (begin : Int, end : Int){
+        if (end <= 0) {
+            return
+        }
         var l = begin
         var r = end
         val piv  = array[(l + r) / 2]
